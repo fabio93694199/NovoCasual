@@ -30,6 +30,6 @@
     <string name="msg_esqueceu_senha">Nós só precisamos do seu email cadastrado para lhe enviar instruções de redefinição de senha.</string>
     <string name="title_activity_cadastro">Cadastro</string>
     <string name="acao_atualizar">Atualizar</string>
-    <string name="acao_configurar">Atualizar</string>
-    <string name="acao_sair">Atualizar</string>
+    <string name="acao_configurar">Configurar</string>
+    <string name="acao_sair">Sair</string>
 </resources>

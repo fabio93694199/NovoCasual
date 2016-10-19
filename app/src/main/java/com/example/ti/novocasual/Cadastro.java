@@ -1,8 +1,9 @@
 package com.example.ti.novocasual;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -14,13 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.Map;
 
 public class Cadastro extends AppCompatActivity {
 
@@ -31,17 +27,12 @@ public class Cadastro extends AppCompatActivity {
     private DatabaseReference databaseReference,banco,banco1,refBanco;
     //private DatabaseReference banco;
     private Usuario usuario;
-//
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
-        // Usuarios
-        //usuario = new Usuario();
-        //usuario.setNome(nome.getText().toString().trim());
-        //usuario.setEmail(email.getText().toString().trim());
-        //usuario.setSenha(senha.getText().toString().trim());
-        //Obter instância Firebase database
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
         banco = databaseReference.child("brasil");
         //Obter instância Firebase auth
@@ -54,7 +45,8 @@ public class Cadastro extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnResetPassword = (Button) findViewById(R.id.btn_reset_password);
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,6 +54,7 @@ public class Cadastro extends AppCompatActivity {
                 finish();
             }
         });
+        ////////////////////////////////////////////////////////////////////////////////////////////
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,26 +123,11 @@ public class Cadastro extends AppCompatActivity {
 
             }
         });
-
-        refBanco.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Map <String,String> mapaDeString = dataSnapshot.getValue(Map.class);
-                String estado = mapaDeString.get("RioGrandeDoSul");
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
     }
-
     @Override
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
     }
-
 }

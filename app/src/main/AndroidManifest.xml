@@ -3,7 +3,6 @@
     package="com.example.ti.novocasual">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.LOCATION_HARDWARE" />
@@ -29,25 +28,28 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RedefinirSenha"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Cadastro"
             android:label="@string/title_activity_cadastro"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".Principal" />
-        <activity
-            android:name=".RedefinirSenha"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Principal"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
         <!--
-     ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+            ATTENTION: This was auto-generated to add Google Play services to your project for
+            App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
         -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
-        <!--activity android:name=".PessoasEncontradas">
-
-        </activity!-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>
