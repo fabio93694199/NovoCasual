@@ -24,7 +24,7 @@ public class Cadastro extends AppCompatActivity {
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
-    private DatabaseReference databaseReference,banco,banco1,refBanco;
+    private DatabaseReference databaseReference,banco,banco1,refBanco,banco2;
     //private DatabaseReference banco;
     private Usuario usuario;
 
@@ -107,13 +107,18 @@ public class Cadastro extends AppCompatActivity {
                                     usuario.setSenha(senhaLocal);
                                     usuario.setNome("nome1");
                                     usuario.setId(auth.getCurrentUser().getUid().toString());
+                                    usuario.setOnline("false");
+                                    usuario.setLat("-30.1611991");
+                                    usuario.setLng("-51.1399591");
                                     //banco.child(usuario.getId());
                                     //banco.child("ID");
                                     //banco.setValue(usuario);
                                     banco1=banco.child("RioGrandeDoSul");
-                                    refBanco=banco1.child(usuario.getId());
+                                    banco2=banco1.child(usuario.getId());
+                                    refBanco=banco2.child("usuario");
                                     //refBanco=banco.child("RioGrandeDoSul").child("usuarios");
                                     refBanco.setValue(usuario);
+                                    usuario = new Usuario();
                                     Toast.makeText(getBaseContext(),"Usuario Criado com Sucesso !!!",Toast.LENGTH_SHORT).show();
                                     //startActivity(new Intent(Cadastro.this, Login.class));
                                     finish();

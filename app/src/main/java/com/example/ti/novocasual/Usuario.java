@@ -13,6 +13,9 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    private String lat;
+    private String lng;
+    private String online;
 
     public Usuario(){}
 
@@ -47,6 +50,30 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLng() {
+        return lng;
+    }
+
+    public void setLng(String lng) {
+        this.lng = lng;
+    }
+
+    public String getOnline() {
+        return online;
+    }
+
+    public void setOnline(String online) {
+        this.online = online;
     }
     /*
         public void gerarCryptSenha(){

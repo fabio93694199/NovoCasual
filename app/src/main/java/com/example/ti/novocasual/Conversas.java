@@ -54,13 +54,15 @@ public class Conversas extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 for(DataSnapshot dsp : dataSnapshot.getChildren()){
                     //lst.add(String.valueOf(dsp.getKey())); //add o resultado no array list
-                    listaDeUsuarios.add(String.valueOf(dsp.getValue()));
+                    //listaDeUsuarios.add(String.valueOf(dsp.getValue()));
+                 Usuario usuario = dsp.getValue(Usuario.class);
+                    listaDeUsuarios.add(usuario.getNome());
                 }
                 /*
                 for(String dado:listaDeUsuarios){
                     Toast.makeText(getContext(),dado, LENGTH_LONG).show();
                 }*/
-                adaptador.notifyDataSetChanged();
+              //  adaptador.notifyDataSetChanged();
             }
 
             @Override
