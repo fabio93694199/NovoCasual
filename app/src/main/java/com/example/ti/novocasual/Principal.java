@@ -10,7 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Principal extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class Principal extends AppCompatActivity implements Comunicador {
 
     TabLayout abas;
     ViewPager paginaDasAbas;
@@ -39,7 +41,7 @@ public class Principal extends AppCompatActivity {
         paginaDasAbas = (ViewPager) findViewById(R.id.IDadaptardorDePaginas);
         //////////////////////////// ADAPTAR AS PAGINAS //////////////////////////////
         adaptadorDePaginas = new AdaptadorDePaginas(getSupportFragmentManager());
-        adaptadorDePaginas.addPaginas(new Pagina1(), "Perfil");
+        adaptadorDePaginas.addPaginas(new Pagina1(), "Onlines");
         adaptadorDePaginas.addPaginas(new Conversas(), "Conversas");
         adaptadorDePaginas.addPaginas(new Apontamentos(), "Apontamentos");
         paginaDasAbas.setAdapter(adaptadorDePaginas);
@@ -77,6 +79,15 @@ public class Principal extends AppCompatActivity {
         //
         return super.onOptionsItemSelected(item);                                   //
     }                                                                               //
+
+    @Override
+    public void responder(ArrayList<Usuario> lista) {
+        //android.app. fragmentManager = getFragmentManager();
+        Apontamentos apontamentos = (Apontamentos) getSupportFragmentManager().findFragmentById(R.id.map);
+        apontamentos.testDeLista(lista);
+        //Apontamentos ap = new Apontamentos();
+        //ap.testDeLista(lista);
+    }
     //////////////////////////////////////////////////////////////////////////////////
 
 }

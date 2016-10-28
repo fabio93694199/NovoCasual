@@ -2,21 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/ID_fragment_pagina1"
     tools:context="com.example.ti.novocasual.Pagina1">
 
-    <!-- TODO: Update blank fragment layout
-    android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
-         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"-->
-    <!--ImageView
-
-        android:id="@+id/IDimage"
-
-        android:gravity="center"
-        android:scaleType="center"
+    <ListView
+        android:id="@+id/IDlistadepessoasEncontradas"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/test2"/!-->
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </FrameLayout>
