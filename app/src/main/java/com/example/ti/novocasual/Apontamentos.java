@@ -102,7 +102,10 @@ public class Apontamentos extends SupportMapFragment implements OnMapReadyCallba
             LatLng latLng = location();
 
             //mMap.addMarker(new MarkerOptions().position(latLng).title("Eu").snippet(lstUsuario.get(1).getEmail().toString()));
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Eu").snippet(Integer.toString(lstUsuario.size())));
+            //mMap.addMarker(new MarkerOptions().position(latLng).title("Eu").snippet(Integer.toString(lstUsuario.size())));
+
+            mMap.addMarker(new MarkerOptions().position(latLng).title("Eu").snippet("test"));
+
 
             //for (int i= 0; i<lstUsuario.size();i++) {
             //    mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(lstUsuario.get(i).getLat()),Double.parseDouble(lstUsuario.get(i).getLng()))).title(lstUsuario.get(i).getNome().toString()).snippet(lstUsuario.get(i).getEmail().toString()));

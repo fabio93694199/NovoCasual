@@ -117,12 +117,7 @@ public class Pagina1 extends Fragment{
             }
         });
         ///////////////////////////////////////////////////////////////////////
-        Pagina1 testep = new Pagina1();
-        Bundle bundle =new Bundle();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        bundle.putString("test","conteudo");
-        testep.setArguments(bundle);
-        fragmentTransaction.replace(R.id.ID_fragment_pagina1,testep);
+
         ///////////////////////////////////////////////////////////////////////
         return v;
     }
@@ -144,15 +139,7 @@ public class Pagina1 extends Fragment{
         use1.setLat("-51.11254");
         use1.setOnline("true");
         //
-        Usuario use2 = new Usuario();
-        use1.setId("02");
-        use1.setNome("gasparzinho");
-        use1.setEmail("gasparzinho@gmail.com");
-        use1.setSenha("123456");
-        use1.setLat("-51.11254");
-        use1.setOnline("true");
-        //
-        listaDeUsuarios2.add(use2);
+        listaDeUsuarios2.add(use1);
         //
         comunicacao.responder(listaDeUsuarios2);
 

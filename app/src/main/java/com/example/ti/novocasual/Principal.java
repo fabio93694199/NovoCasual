@@ -83,8 +83,8 @@ public class Principal extends AppCompatActivity implements Comunicador {
     @Override
     public void responder(ArrayList<Usuario> lista) {
         //android.app. fragmentManager = getFragmentManager();
-        Apontamentos apontamentos = (Apontamentos) getSupportFragmentManager().findFragmentById(R.id.map);
-        apontamentos.testDeLista(lista);
+        //Apontamentos apontamentos = (Apontamentos) getSupportFragmentManager().findFragmentById(R.id.map);
+        //apontamentos.testDeLista(lista);
         //Apontamentos ap = new Apontamentos();
         //ap.testDeLista(lista);
     }
