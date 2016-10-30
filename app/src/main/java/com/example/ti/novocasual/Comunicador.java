@@ -7,5 +7,5 @@ import java.util.ArrayList;
  */
 
 public interface Comunicador {
-    public void responder(ArrayList<Usuario> lista);
+    public void responder(String texto);
 }

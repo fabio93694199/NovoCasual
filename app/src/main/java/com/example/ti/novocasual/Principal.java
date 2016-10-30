@@ -12,7 +12,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class Principal extends AppCompatActivity implements Comunicador {
+public class Principal extends AppCompatActivity {
 
     TabLayout abas;
     ViewPager paginaDasAbas;
@@ -80,14 +80,6 @@ public class Principal extends AppCompatActivity implements Comunicador {
         return super.onOptionsItemSelected(item);                                   //
     }                                                                               //
 
-    @Override
-    public void responder(ArrayList<Usuario> lista) {
-        //android.app. fragmentManager = getFragmentManager();
-        //Apontamentos apontamentos = (Apontamentos) getSupportFragmentManager().findFragmentById(R.id.map);
-        //apontamentos.testDeLista(lista);
-        //Apontamentos ap = new Apontamentos();
-        //ap.testDeLista(lista);
-    }
     //////////////////////////////////////////////////////////////////////////////////
 
 }

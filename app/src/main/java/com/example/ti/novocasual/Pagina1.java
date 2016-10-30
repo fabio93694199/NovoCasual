@@ -27,8 +27,6 @@ import java.util.ArrayList;
  */
 public class Pagina1 extends Fragment{
 
-    Comunicador comunicacao;
-
     private DatabaseReference databaseReference,banco,banco1,refBanco,pessoasEncontradas,refObjeto;
     private ListView listPessoasEncontradas;
     private ArrayList<String> listaDeUsuarios = new ArrayList<>();
@@ -130,18 +128,6 @@ public class Pagina1 extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        comunicacao = (Comunicador) getActivity();
-        Usuario use1 = new Usuario();
-        use1.setId("01");
-        use1.setNome("gaspar");
-        use1.setEmail("gaspar@gmail.com");
-        use1.setSenha("123456");
-        use1.setLat("-51.11254");
-        use1.setOnline("true");
-        //
-        listaDeUsuarios2.add(use1);
-        //
-        comunicacao.responder(listaDeUsuarios2);
 
     }
 }
