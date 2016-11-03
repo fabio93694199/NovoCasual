@@ -27,7 +27,7 @@ import java.util.ArrayList;
  */
 public class Pagina1 extends Fragment{
 
-    private DatabaseReference databaseReference,banco,banco1,refBanco,pessoasEncontradas,refObjeto;
+    //private DatabaseReference databaseReference,banco,banco1,refBanco,pessoasEncontradas,refObjeto;
     private ListView listPessoasEncontradas;
     private ArrayList<String> listaDeUsuarios = new ArrayList<>();
     private ArrayList<Usuario> listaDeUsuarios2 = new ArrayList<Usuario>();
@@ -56,8 +56,8 @@ public class Pagina1 extends Fragment{
         comunicacao.responder(listaDeUsuarios2);
         */
         ///////////////////////////////////////////////////////////////////////
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        refObjeto = databaseReference.child("brasil").child("RioGrandeDoSul");
+//        databaseReference = FirebaseDatabase.getInstance().getReference();
+//        refObjeto = databaseReference.child("brasil").child("RioGrandeDoSul");
         listPessoasEncontradas = (ListView) v.findViewById(R.id.IDlistadepessoasEncontradas);
 
         //final ArrayAdapter<Usuario> adaptador = new ArrayAdapter<Usuario>(getContext(),android.R.layout.simple_list_item_1, listaDeUsuarios);
@@ -66,9 +66,9 @@ public class Pagina1 extends Fragment{
         final ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1, listaDeUsuarios);
         listPessoasEncontradas.setAdapter(adaptador);
 
-        refObjeto.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//        refObjeto.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 /*
                 for(DataSnapshot dsp : dataSnapshot.getChildren()){
                     //lst.add(String.valueOf(dsp.getKey())); //add o resultado no array list
@@ -81,8 +81,8 @@ public class Pagina1 extends Fragment{
                 }
                 */
 
-                Usuario usuario = dataSnapshot.getValue(Usuario.class);
-                listaDeUsuarios.add(usuario.getNome());
+//                Usuario usuario = dataSnapshot.getValue(Usuario.class);
+//                listaDeUsuarios.add(usuario.getNome());
                 //listaDeUsuarios.add(dataSnapshot.getValue(Usuario.class).getNome()+s);
 
                 //listaDeUsuarios.add(String.valueOf(dataSnapshot.getValue(Usuario.class).getNome()));
@@ -91,9 +91,9 @@ public class Pagina1 extends Fragment{
                 //for(String dado:listaDeUsuarios){
                 //    Toast.makeText(getContext(),dado, Toast.LENGTH_SHORT).show();
                 //}
-                adaptador.notifyDataSetChanged();
-            }
-
+//                adaptador.notifyDataSetChanged();
+//            }
+/*
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
@@ -115,7 +115,7 @@ public class Pagina1 extends Fragment{
             }
         });
         ///////////////////////////////////////////////////////////////////////
-
+*/
         ///////////////////////////////////////////////////////////////////////
         return v;
     }

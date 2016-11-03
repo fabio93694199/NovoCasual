@@ -29,23 +29,13 @@ import java.util.ArrayList;
 public class Apontamentos extends SupportMapFragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private DatabaseReference databaseReference,banco;
-    private ArrayList<Usuario> lstUsuario = new ArrayList<Usuario>();
-    private ArrayList minhaListaTest;
-    //private ArrayList<Usuario> lstUsuario = new ArrayList<>();
-    //private ArrayList<Double> lstUsuario = new ArrayList<>();
-    private String test1;
-    private String conteudo;
+    private DatabaseReference databaseReference,banco,banco1;
+    private ArrayList<Usuario> lstUsuario = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //lstUsuario = ;
-
-
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        banco = databaseReference.child("brasil").child("RioGrandeDoSul");
 
         getMapAsync(this);
     }
@@ -75,6 +65,7 @@ public class Apontamentos extends SupportMapFragment implements OnMapReadyCallba
 
     protected class Localizar implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
         private GoogleApiClient m_api;
+        int cont = 0;
 
         public Localizar(){
             super();
@@ -92,30 +83,47 @@ public class Apontamentos extends SupportMapFragment implements OnMapReadyCallba
         @Override
         public void onConnected(Bundle bundle){
 
-            /*
             LatLng latLng = location();
 
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Eu").snippet("29 anos"));
-            mMap.animateCamera(cameraPosition(latLng,15,0,0));
-            m_api.disconnect();
-            */
-            LatLng latLng = location();
+            databaseReference = FirebaseDatabase.getInstance().getReference();
+            banco = databaseReference.child("brasil").child("RioGrandeDoSul");
 
-            //mMap.addMarker(new MarkerOptions().position(latLng).title("Eu").snippet(lstUsuario.get(1).getEmail().toString()));
-            //mMap.addMarker(new MarkerOptions().position(latLng).title("Eu").snippet(Integer.toString(lstUsuario.size())));
+            banco.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
 
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Eu").snippet("test"));
+                    if (dataSnapshot.getChildrenCount()==0){
+                        //se tá vazio o banco sai do método de busca
+                    }else{
+                        //para cada usuario no banco, cria um objeto e add numa lista...
+                        for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
 
+                            Usuario use = postSnapshot.getValue(Usuario.class);
+                            lstUsuario.add(use);
+                            cont+=1;
+                        }
+                    }
+                    // somente após os dados chegarem de fato...
+                    for (int i=0; i< lstUsuario.size(); i++){
 
-            //for (int i= 0; i<lstUsuario.size();i++) {
-            //    mMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(lstUsuario.get(i).getLat()),Double.parseDouble(lstUsuario.get(i).getLng()))).title(lstUsuario.get(i).getNome().toString()).snippet(lstUsuario.get(i).getEmail().toString()));
-            //    //mMap.animateCamera(cameraPosition(latLng, 15, 0, 0));
-            //}
+                        Double lt = Double.parseDouble(lstUsuario.get(i).getLat());
+                        Double lg = Double.parseDouble(lstUsuario.get(i).getLng());
+
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(lt,lg)).title(lstUsuario.get(i).getNome()).snippet(lstUsuario.get(i).getEmail()));
+                        //mMap.addMarker(new MarkerOptions().position(new LatLng(lt,lg)).title(Integer.toString(lstUsuario.size())).snippet(Integer.toString(cont)));
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
             mMap.animateCamera(cameraPosition(latLng, 15, 0, 0));
             m_api.disconnect();
-
-            //String test2= String.valueOf(test1);
-            //Toast.makeText(getContext(),test2,Toast.LENGTH_LONG);
         }
 
         @Override
