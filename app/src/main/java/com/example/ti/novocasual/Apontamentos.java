@@ -83,7 +83,7 @@ public class Apontamentos extends SupportMapFragment implements OnMapReadyCallba
         @Override
         public void onConnected(Bundle bundle){
 
-            LatLng latLng = location();
+            final LatLng latLng = location();
 
             databaseReference = FirebaseDatabase.getInstance().getReference();
             banco = databaseReference.child("brasil").child("RioGrandeDoSul");
