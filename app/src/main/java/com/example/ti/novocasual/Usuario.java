@@ -19,6 +19,16 @@ public class Usuario {
 
     public Usuario(){}
 
+    public Usuario(String i,String n,String e,String s,String la,String ln,String o){
+        id=i;
+        nome=n;
+        email=e;
+        senha=s;
+        lat=la;
+        lng=ln;
+        online=o;
+    }
+
 
     public String getId() {
         return id;

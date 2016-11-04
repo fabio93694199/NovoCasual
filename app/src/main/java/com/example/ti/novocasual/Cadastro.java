@@ -1,5 +1,6 @@
 package com.example.ti.novocasual;
 
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -11,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -94,33 +96,20 @@ public class Cadastro extends AppCompatActivity {
                                     Toast.makeText(Cadastro.this, "Autentificação falhou." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    //usuario.setId(auth.getCurrentUser().getUid().toString());
-                                    //usuario.saveDB();
-                                    //auth.signOut();
-                                    //
                                     usuario = new Usuario();
-
-                                    //usuario.setEmail(email.getText().toString().trim());
-                                    //usuario.setSenha(senha.getText().toString().trim());
-
                                     usuario.setEmail(emailLocal);
                                     usuario.setSenha(senhaLocal);
                                     usuario.setNome("nome1");
                                     usuario.setId(auth.getCurrentUser().getUid().toString());
                                     usuario.setOnline("false");
-                                    usuario.setLat("-30.1611991");
-                                    usuario.setLng("-51.1399591");
-                                    //banco.child(usuario.getId());
-                                    //banco.child("ID");
-                                    //banco.setValue(usuario);
+                                    usuario.setLat("");
+                                    usuario.setLng("");
                                     banco1=banco.child("RioGrandeDoSul");
-                                    banco2=banco1.child(usuario.getId());
-                                    refBanco=banco2.child("usuario");
-                                    //refBanco=banco.child("RioGrandeDoSul").child("usuarios");
+                                    refBanco=banco1.child(usuario.getId());
                                     refBanco.setValue(usuario);
                                     usuario = new Usuario();
                                     Toast.makeText(getBaseContext(),"Usuario Criado com Sucesso !!!",Toast.LENGTH_SHORT).show();
-                                    //startActivity(new Intent(Cadastro.this, Login.class));
+
                                     finish();
                                 }
                             }

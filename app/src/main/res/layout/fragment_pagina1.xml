@@ -5,11 +5,10 @@
     android:id="@+id/ID_fragment_pagina1"
     tools:context="com.example.ti.novocasual.Pagina1">
 
-    <ListView
-        android:id="@+id/IDlistadepessoasEncontradas"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ID_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:scrollbars="vertical"/>
 
 </FrameLayout>

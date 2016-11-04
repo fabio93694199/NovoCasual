@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Principal extends AppCompatActivity {
 
@@ -82,5 +83,8 @@ public class Principal extends AppCompatActivity {
     }                                                                               //
 
     //////////////////////////////////////////////////////////////////////////////////
+ //   public List<Usuario> getSetUsuarioList (int qnt){
 
+  //  }
+    //////////////////////////////////////////////////////////////////////////////////
 }
