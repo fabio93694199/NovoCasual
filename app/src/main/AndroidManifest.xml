@@ -37,12 +37,10 @@
             android:label="@string/title_activity_cadastro"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".Principal"
+        <activity
+            android:name=".Principal"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <!--
             ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -54,6 +52,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
     </application>
 
 </manifest>
